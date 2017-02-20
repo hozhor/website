@@ -1,5 +1,8 @@
-<footer>
-		<div id="returnTop"><i class="fa fa-rocket"></i></div>
+<footer id="footer">
+		<div id="returnTop">
+		<i class="fa fa-rocket">			
+		</i>
+		</div>
 
 </footer>
 </body>

@@ -4,42 +4,42 @@
 	<meta  charset=UTF-8">
 	<title> My resume</title>
 	<link type="text/css" rel="stylesheet" href=" <?php bloginfo('template_url');?>/style.css " />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/highlight.css" />
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/myjs.js"></script>
 	<?php wp_head(); ?>
 </head>
 <body>
-<header>
-
+<header id="header">
 		<div id="logo">
 		<div class="logosvg">
-<img src="<?php
+		<a href="http://localhost/wordpress/">
+		<img src="<?php
 		bloginfo('template_directory');
-		?>/logo.svg"/></div>
-			<div class="logo-tag">
+		?>/logo.svg"/>
+		</a>
+		</div>
+		<div class="logo-tag">
+		<a href="http://localhost/wordpress/">
 		<img src="<?php
 		bloginfo('template_directory');
 		?>/images/logo.jpg" alt="<?php bloginfo(
 		‘name’ ); ?>" width="160"
 		height="160"/>
-			</div>
+		</a>
 		</div>
-		<div class="nav">
-		<nav id="navber" >
-			<div class="buttn"> 
-			<i class="fa fa-reorder"></i>
-			</div>
-<?php 
-  if(function_exists('wp_nav_menu')) {
-      wp_nav_menu(array( 'theme_location' => 'top-menu','container_id'=>'menu-top','container_class' => 'menu') ); 
-  }
-?>
-	
-			
+		</div>
+		<div class="top-navber-tag">
+		<nav id="navber">
+		<div class="navber-buttn"> 
+		<i class="fa fa-reorder"></i>
+		</div>
+				<?php 
+				  if(function_exists('wp_nav_menu')) {
+				      wp_nav_menu(array( 'theme_location' => 'top-menu','container_id'=>'menu-top','container_class' => 'menu') ); 
+				  }
+				?>			
 		</nav>
-		<div id="search">
-aaa
-		</div>
 		</div>
 
 </header>

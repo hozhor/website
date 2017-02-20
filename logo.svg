@@ -1,14 +1,19 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <path d="M20 40
+
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250px" height="100px" viewBox="100 0 200 200">
+
+  <path d="M20 160
+   V50 
+   A 20 30, 0, 0, 1, 30 40 
    H45
    A 20 30, 0, 0, 0, 60 70
    V160
-   M60 100
-   L10 100
-   M10 160
-   V45
-   A 20 30, 0, 0, 1, 23 40
+   Z
+   " 
+  style="fill: #ffffff;stroke: #f7f782;stroke-width:5"/>
+  
+    <path d="
    M75 65
    V160
    M90 160
@@ -16,20 +21,21 @@
    A 20 30, 0, 0, 0, 105 40
    H115
    A 20 20, 0, 1, 1, 115 100
-   H90
-   M115 100
    A 20 20, 0, 0, 1, 140 120
    V160
-   M65 30
+   Z
+"
+  style="fill: #ffffff;stroke:#f7f782;stroke-width:5"/>
+  <path d="M65 30
            A 15 15, 0, 1, 0, 85 30
            L 75 10 Z
    " 
-
-
-
-  style="stroke:White;stroke-width:5"
-
-
-  />
+  style="fill: #ffffff;stroke:#f7f782;stroke-width:5"/>
+ 
+ <path d=" M75 65
+   V160
+"
+  style="stroke: #ffffff;stroke-width:10"/>
+  <text x="170" y="170"  style="font-size:60px;fill: #ffffff;text-shadow: 0px 0px 7px #f7f782">艾尔博客</text>
 
 </svg>
