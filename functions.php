@@ -30,32 +30,49 @@ function my_entry_published_link() {
  
 
  <?php 
-// 获得文章导引图像
-function get_post_img($width="100",$height="100",$sizeTag=2) {   
-    global $post, $posts;   
-    $first_img = '';   
-       
-    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-      
-    $first_img = '<img src="'. $matches[1][0] .'" width="'.$width.'" height="'.$height.'" alt="'.$post->post_title .'"/>';  
-      
-    return false;
-      
-} 
+//使WordPress支持post thumbnail
+ 
+if ( function_exists( 'add_theme_support' ) ) {
+    add_theme_support( 'post-thumbnails' );
+}
+
+the_post_thumbnail();                  // 无参数，默认调用Thumbnail 
+the_post_thumbnail('thumbnail');       // Thumbnail (默认尺寸 150px x 150px max)
+the_post_thumbnail('medium');          // Medium resolution (default 300px x 300px max)
+the_post_thumbnail('large');           // Large resolution (default 640px x 640px max)
+the_post_thumbnail('full');            // Full resolution (original size uploaded)
+  
+the_post_thumbnail( array(100,100) );  // Other resolutions
 
 
+//自动将文章第一个图设为WordPress特色图像
+function wpforce_featured() {
+    global $post;
+    $already_has_thumb = has_post_thumbnail($post->ID);
+    if (!$already_has_thumb)  {
+        $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
+        if ($attached_image) {
+            foreach ($attached_image as $attachment_id => $attachment) {
+                set_post_thumbnail($post->ID, $attachment_id);
+            }
+        } else {
+            set_post_thumbnail($post->ID, '50');
+        }
+    }
+}  //end function
+add_action('the_post', 'wpforce_featured');
+add_action('save_post', 'wpforce_featured');
+add_action('draft_to_publish', 'wpforce_featured');
+add_action('new_to_publish', 'wpforce_featured');
+add_action('pending_to_publish', 'wpforce_featured');
+add_action('future_to_publish', 'wpforce_featured');
+?>
 
-//后台文章导引图像管理
-if (function_exists('add_theme_support') )
- add_theme_support('post-thumbnails');
-add_image_size('large', 730, 300, true);
-add_image_size('thumbnail', 140, 100, true);
-add_image_size('medium', 110, 110,true);
 
-
-
+ <?php 
 
 //文章阅览次数
+
 function get_post_views ($post_id) {   
   
     $count_key = 'views';   
@@ -142,6 +159,34 @@ function the_breadcrumb() {
 
    ?>
 
+
+
+
+ <?php 
+/////////////////////////////////////////////////////////////////////////////
+//点赞  
+add_action('wp_ajax_nopriv_bigfa_like', 'bigfa_like');
+add_action('wp_ajax_bigfa_like', 'bigfa_like');
+function bigfa_like(){
+    global $wpdb,$post;
+    $id = $_POST["um_id"];
+    $action = $_POST["um_action"];
+    if ( $action == 'ding'){
+		$bigfa_raters = get_post_meta($id,'bigfa_ding',true);
+		$expire = time() + 99999999;
+		$domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false; // make cookies work with localhost
+		setcookie('bigfa_ding_'.$id,$id,$expire,'/',$domain,false);
+		if (!$bigfa_raters || !is_numeric($bigfa_raters)) {
+			update_post_meta($id, 'bigfa_ding', 1);
+		}else {
+			update_post_meta($id, 'bigfa_ding', ($bigfa_raters + 1));
+		}   
+		echo get_post_meta($id,'bigfa_ding',true);    
+    }     
+    die;
+}
+/////////////////////////////////////////////////////////////////////////////
+ ?>
 
 
    <?php 

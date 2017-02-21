@@ -1,4 +1,40 @@
+// 打印
+var global_Html = "";
+function printme() {
+    global_Html = document.body.innerHTML;
+    document.body.innerHTML = document.getElementById('primary').innerHTML;　　　　　　　　　　　　　　
+    window.print();
+    window.setTimeout(function() {
+        document.body.innerHTML = global_Html;
+    }, 500);
+}
 
+// 喜欢
+$(document).ready(function() { 
+    $.fn.postLike = function() {
+        if ($(this).hasClass('done')) {
+            alert('您已赞过本博客');
+            return false;
+        } else {
+            $(this).addClass('done');
+            var id = $(this).data("id"),
+            action = $(this).data('action'),
+            rateHolder = $(this).children('.count');
+            var ajax_data = {
+                action: "bigfa_like",
+                um_id: id,
+                um_action: action
+            };
+            $.post("<?php bloginfo('url');?>/wp-admin/admin-ajax.php", ajax_data, function(data) {
+                $(rateHolder).html(data);
+            });
+            return false;
+        }
+    };
+    $(document).on("click", ".favorite", function() {
+        $(this).postLike();
+    });
+}); 
 
 
 
@@ -84,9 +120,21 @@ $('.m-title').click(function() {
         });
 
          $(".r-hide").click(function(){
+           if($(".air8.bg_w.p_r").attr("class")=="air8 bg_w p_r"){ 
+            $(".air8.bg_w.p_r").addClass("air12");
+            $(".air4.last.bg_w").addClass("airhide");
 
-            $(".white.air8").toggleClass("air12");
-             $(".white.air4.last").toggleClass("airhide");
+            $(".fa.fa-caret-left").addClass("fa-flip-horizontal");
+            $(".fa.fa-caret-right").addClass("fa-flip-horizontal");
+
+        }else{
+            $(".air8.bg_w.p_r").removeClass("air12");
+            $(".air4.last.bg_w").removeClass("airhide");
+            $(".fa.fa-caret-left.fa-flip-horizontal").removeClass("fa-flip-horizontal");
+            $(".fa.fa-caret-right.fa-flip-horizontal").removeClass("fa-flip-horizontal");
+
+        }
+
 
         });        
 

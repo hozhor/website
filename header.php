@@ -10,8 +10,8 @@
 	<?php wp_head(); ?>
 </head>
 <body>
-<header id="header">
-		<div id="logo">
+<header id="header" class="a_c full">
+		<div id="logo" class="full">
 		<div class="logosvg">
 		<a href="http://localhost/wordpress/">
 		<img src="<?php
@@ -29,8 +29,8 @@
 		</a>
 		</div>
 		</div>
-		<div class="top-navber-tag">
-		<nav id="navber">
+		<div class="top-navber-tag full">
+		<nav id="navber" class="a_c">
 		<div class="navber-buttn"> 
 		<i class="fa fa-reorder"></i>
 		</div>

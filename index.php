@@ -3,19 +3,19 @@
 
 <div class="container-1200">
 	<div class="onerow">
-				<div id="AD" class="white air12">
+				<div id="AD" class="air12 bg_w">
 				<?php include (TEMPLATEPATH . '/AD.php'); ?>
 				</div>
 	</div>
 	<div class="onerow">
-				<div class="white air4">
+				<div class="air4 bg_w">
 
 					<?php
     $cats = get_categories();
     foreach ( $cats as $cat ) {
     query_posts( 'showposts=10&cat=' . $cat->cat_ID );
 ?>
-	<aside id="cat" class="white">
+	<aside id="cat" class="widget bg_w">
     <h3><?php echo $cat->cat_name; ?></h3>
     <ul class="sitemap-list">
         <?php while ( have_posts() ) { the_post(); ?>
@@ -26,7 +26,7 @@
 <?php } ?>
 
 				</div>
-				<div class="white air8 last">
+				<div class="air8 last bg_w">
 
 
 
@@ -38,12 +38,14 @@
 
 					<?php if(have_posts()) : ?>
 							<?php while(have_posts()) : the_post(); ?>
-					<section id="post" class="white hidden-xs">
-						<div class="centent-article">					
-							<?php $thumb_img = has_post_thumbnail() ? get_the_post_thumbnail( $post->
-							ID, array(730, 300), array('alt' => trim(strip_tags( $post->post_title )),'title'=> trim(strip_tags( $post->post_title ))) ) : get_post_img( 730, 300, 1);?>
-							<figure class="thumbnail hidden-xs"><a href="<?php the_permalink() ?>"><?php echo $thumb_img;?></a></figure>							
-
+					<article  id="post-<?php the_ID(); ?>" class="post ">
+				
+							<figure class="thumbnail"><a href="<?php the_permalink() ?>"><?php
+if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+  the_post_thumbnail();
+}
+?></a></figure>							
+						<div class="centent-article">	
 						</div>
 
 						<div class="title-article">
@@ -55,7 +57,7 @@
 							
 						</div>
 
-					</section>
+					</article>
 
 							<?php endwhile; ?>
 						<?php endif; ?> 
