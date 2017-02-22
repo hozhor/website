@@ -2,7 +2,8 @@
 var global_Html = "";
 function printme() {
     global_Html = document.body.innerHTML;
-    document.body.innerHTML = document.getElementById('primary').innerHTML;　　　　　　　　　　　　　　
+    document.body.innerHTML = document.getElementById('primary').innerHTML;
+    $(".single-footer").hide();　　　　　　　　　
     window.print();
     window.setTimeout(function() {
         document.body.innerHTML = global_Html;
@@ -123,13 +124,14 @@ $('.m-title').click(function() {
            if($(".air8.bg_w.p_r").attr("class")=="air8 bg_w p_r"){ 
             $(".air8.bg_w.p_r").addClass("air12");
             $(".air4.last.bg_w").addClass("airhide");
-
+            $(".r-hide a").attr("title","默认模式");
             $(".fa.fa-caret-left").addClass("fa-flip-horizontal");
             $(".fa.fa-caret-right").addClass("fa-flip-horizontal");
 
         }else{
             $(".air8.bg_w.p_r").removeClass("air12");
             $(".air4.last.bg_w").removeClass("airhide");
+            $(".r-hide a").attr("title","宽屏模式");
             $(".fa.fa-caret-left.fa-flip-horizontal").removeClass("fa-flip-horizontal");
             $(".fa.fa-caret-right.fa-flip-horizontal").removeClass("fa-flip-horizontal");
 

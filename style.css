@@ -59,14 +59,25 @@ footer#footer { height: 30px; clear: both; margin-top: 20px; }
 .m-title:before { position: absolute; left: 93px; background: #fff; height: 18px; width: 18px; border-radius: 6px; top: 3px; content: "" }
 .m-title:after { position: absolute; left: 96px; background: #ccc; height: 12px; width: 12px; border-radius: 6px; top: 6px; content: "" }
 
-/*.post { float: left;width: 50%; padding: 15px; border: 1px solid #ddd; box-shadow: none; }
-*/
 
+
+
+.post { position: relative; float: left;width: 48%; padding: 1%; border: 1px solid #ddd; box-shadow: none;margin: 0 -1px; }
 .thumbnail { position: relative; float: left; max-width: 200px; height: auto; clear: both; margin: 1px 20px 0 0; overflow: hidden; transition-duration: .5s; }
+.entry-header h2 {
+    margin: 0 0 5px;
+    height: 50px;
+    overflow: hidden;
+}
 .air8.last figure.thumbnail { margin: 1px 15px 0 0; max-width: 120px; }
 .thumbnail a img { float: left; width: auto; height: auto; max-width: 100%; }
+.entry-meta {
+    position: absolute;
+    bottom: 2px;
+    color: #999;
+    left: 150px;
+}
 .thumbnail a img { -webkit-transition: -webkit-transform .3s linear; -moz-transition: -moz-transform .3s linear; -o-transition: -o-transform .3s linear; transition: transform .3s linear; }
-.tag-article.container { position: absolute; bottom: 14px; color: #999; left: 150px; }
 .widget { margin: 0 0 10px 0; border: 1px solid #ddd; border-radius: 2px; box-shadow: 0 1px 1px rgba(0, 0, 0, .04); }
 .widget h3 { background: #f8f8f8; height: 40px; line-height: 40px; border-bottom: 1px solid #ddd; }
 #cat ul { padding: 15px; }
@@ -79,12 +90,12 @@ div#breadcrumb { margin-bottom: 10px; }
 .content{padding: 15px 15px 0 15px;}
 .entry-header h1 { position: relative;  line-height: 30px; text-align: center; margin:35px -15px 20px -15px; padding: 5px 20px; border-left: 5px solid #2f889a; border-right: 5px solid #2f889a; }
 .single-content {  line-height: 1.8; }
-.single-content img, .comment-list p img { max-width: 100%; width: auto\9; height: auto; vertical-align: middle; display: block; }
+.single-content img, .comment-list p img { max-width: 100%; width: auto; height: auto; vertical-align: middle; display: block; }
 .single-content p, .single-content ul, .single-content ol, .single-content dd, .single-content pre, .single-content hr { margin: 0 0 5px 0; -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; word-wrap: break-word; word-break: break-all; text-justify: inter-ideograph; }
 .single-content p { text-indent: 2em; }
 .single-content a, .single-content a:visited { color: #2f889a; }
-.single-content h3 {  line-height: 190%; margin: 2px -11px 10px -11px; padding: 0 44px; border-left: 5px solid #2f889a; }
-.single-content h2 {  line-height: 190%; margin: 10px -11px; padding: 0 44px; border-left: 5px solid #e40000; }
+.single-content h3 {  line-height: 190%; margin: 2px -15px 10px -15px; padding: 0 44px; border-left: 5px solid #2f889a; }
+.single-content h2 {  line-height: 190%; margin: 10px -15px; padding: 0 44px; border-left: 5px solid #e40000; }
 blockquote { width: 98%; color: #8b8b8b; margin: 0 auto; padding: 1px; clear: both; border: 1px dashed #ddd; }
 blockquote, q { -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ""; }
@@ -111,15 +122,14 @@ a img { border: 0; }
 #share { position: absolute; top: -60px; right: -29px; width: 302px; height: 68px; display: none; z-index: 999; }
 
 /*分页下面广告*/
-.entry-content .ad-pc { margin: 0 0 30px 0; text-align: center; }
+.entry-content .ad-pc { text-align: center; }
 .entry-content .ad-site { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
-.ad-pc, .ad-l, .ad-r { text-align: center; }
-.ad-site { background: #fff; margin: 0 0 10px 0; padding-top: 20px; border: 1px solid #ddd; box-shadow: 0 1px 1px rgba(0, 0, 0, .04); border-radius: 2px; overflow: hidden; }
+.ad-site { background: #fff;  padding-top: 20px; border: 1px solid #ddd; box-shadow: 0 1px 1px rgba(0, 0, 0, .04); border-radius: 2px; overflow: hidden; }
 
 /*各种小功能*/
 .single-meta { position: absolute; top: 15px; right: 15px; }
 #fontsize { position: absolute; top: 15px; left: 20px; line-height: 24px; width: 40px; text-align: center; padding: 0 0 1px 0; cursor: pointer; border: 1px solid #ddd; border-radius: 2px; }
-.single-cat-tag { background: #f8f8f8; line-height: 28px; height: 45px; padding: 10px 0; overflow: hidden; border-bottom: 1px solid #ddd; border-radius: 0 0 2px 2px; }
+.single-cat-tag {position: relative;margin: 0 -15px; background: #f8f8f8; line-height: 28px; height: 45px; padding: 10px 0; overflow: hidden; border-bottom: 1px solid #ddd; border-radius: 0 0 2px 2px; }
 ul.single-meta > li { float: left; }
 .single-meta .views, .single-meta li a { color: #999; line-height: 26px; margin: 0 5px 0 0; padding: 0 8px; display: block; border: 1px solid #ddd; border-radius: 2px; }
 .single-meta a { color: #999; }

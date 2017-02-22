@@ -45,17 +45,11 @@ if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned
   the_post_thumbnail();
 }
 ?></a></figure>							
-						<div class="centent-article">	
-						</div>
 
-						<div class="title-article">
-							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-						</div>
-						<div class="tag-article container">
-							<span class="label label-zan"><i class="icon-tags"></i> <?php the_time(n月d日); ?></span>
-							<span class="label label-zan"><i class="icon-user"></i> <?php get_post_views($post -> ID); ?> views</span>
-							
-						</div>
+<header class="entry-header"><h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2> </header>
+
+<div class="entry-content"> <span class="entry-meta"> <span class="date"><?php the_time(n月d日); ?>&nbsp;&nbsp;</span><span class="views"><i class="fa fa-eye"></i><?php get_post_views($post -> ID); ?></span><span class="comment">&nbsp;&nbsp;<a href="http://zmingcx.com/choose-new-window-to-open-the-link.html#comments" rel="external nofollow"><i class="fa fa-comment-o"></i> 19</a></span> </span><div class="clear"></div></div>
+
 
 					</article>
 

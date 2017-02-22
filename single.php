@@ -3,39 +3,6 @@
 
 <div class="container-1200">
     <div class="onerow">
-                <div id="AD" class="bg_w air12">
-<?php/* echo my_entry_published_link(); */
-
-
-
-
-
-
-
-?>
-
-
-<?php include (TEMPLATEPATH . '/AD.php'); ?>
-
-
-
-<?php/* echo my_entry_published_link(); */
-
-
-
-
-
-
-
-
-
-
-
-?>
-
-                </div>
-    </div>
-    <div class="onerow">
              <div id="breadcrumb" class="air12">
              <?php the_breadcrumb(); ?>
              </div>
@@ -101,7 +68,7 @@
            </li>
            <li class="comment"><a href="http://zmingcx.com/wordpress-code-highlight.html#comments" rel="external nofollow"><i class="fa fa-comment-o"></i> 247</a></li>
            <li class="views"><i class="fa fa-eye"></i> <?php get_post_views($post -> ID); ?></li>
-           <li class="r-hide"><a href="javascript:;" title="侧边栏"><i class="fa fa-caret-left"></i> <i class="fa fa-caret-right"></i></a></li></ul><ul id="fontsize"><li>A+</li></ul><div class="single-cat-tag"><div class="single-cat">所属分类：<a href="http://zmingcx.com/category/share/wordpress/" rel="category tag">WordPress</a></div></div> </footer>                 
+           <li class="r-hide"><a href="javascript:;" title="宽屏模式"><i class="fa fa-caret-left"></i> <i class="fa fa-caret-right"></i></a></li></ul><ul id="fontsize"><li>A+</li></ul><div class="single-cat-tag"><div class="single-cat">所属分类：<a href="http://zmingcx.com/category/share/wordpress/" rel="category tag">WordPress</a></div></div> </footer>                 
         <?php endwhile; ?>
     <?php endif; ?>
     </article> 
